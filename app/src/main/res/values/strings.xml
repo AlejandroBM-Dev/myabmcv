@@ -4,4 +4,16 @@
     <string name="welcome_screen">Welcome!!</string>
     <string name="visit_screen">Dejame conocerte</string>
     <string name="start_cv_screen">Bienvenido a mi C.V.!!</string>
+
+    <!-- VISITOR TYPE -->
+    <string name="rh_visitor_title">R.H.</string>
+    <string name="developer_visitor_title">Developer</string>
+    <string name="anonymous_visitor_title">Anonimo</string>
+
+    <!-- CONTENT DESCRIPTION -->
+    <string name="back_button">Back button.</string>
+    <string name="rh_image_description">Background RH image.</string>
+    <string name="dev_image_description">Background DEV image.</string>
+    <string name="anonymous_image_description">Background ANONYMOUS image.</string>
+
 </resources>

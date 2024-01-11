@@ -8,34 +8,33 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import kotlinx.coroutines.delay
 
 @Composable
 fun TypewriterText(
-    texts: List<String>,
+    texts: String,
 ) {
     var textIndex by remember { mutableIntStateOf(0) }
     var textToDisplay by remember { mutableStateOf("") }
-    val delayWriterText = 100L
-    val textsMaxIndex = texts.size
+    val delayWriterText = 80L
 
     LaunchedEffect(key1 = texts) {
-        while (textIndex < textsMaxIndex) {
-            texts[textIndex].forEachIndexed { charIndex, _ ->
-                textToDisplay = texts[textIndex]
-                    .substring(
-                        startIndex = 0,
-                        endIndex = charIndex + 1,
-                    )
-                delay(delayWriterText)
-            }
-            textIndex += 1
+        texts.forEachIndexed { charIndex, _ ->
+            textToDisplay = texts
+                .substring(
+                    startIndex = 0,
+                    endIndex = charIndex + 1,
+                )
+            delay(delayWriterText)
         }
+        textIndex += 1
     }
     Text(
         text = textToDisplay,
+        color = Color.White,
         fontSize = 24.sp,
         fontWeight = FontWeight.Bold,
     )

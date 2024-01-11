@@ -4,11 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
-import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
 import com.raiseralex.myabmcv.ui.theme.MyABMCVTheme
-import com.raiseralex.myabmcv.ui.welcomeFlow.views.HelloCompose
+import com.raiseralex.myabmcv.ui.welcomeFlow.views.MyCvApp
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -26,9 +25,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             MyABMCVTheme {
-                HelloCompose(
-                    Modifier,
-                )
+                MyCvApp()
             }
         }
     }

@@ -41,3 +41,17 @@ x
 Happ/src/main/java/com/raiseralex/myabmcv/ui/shareViews/TypeWriterText.kt,0/5/0564e886d62dff11c5b662b1e698472f64f9e7d5
 p
 @app/src/main/java/com/raiseralex/myabmcv/navigation/AppScreen.kt,e/0/e0f1306a0c557b6e051d0fdf8b7f100caf504df6
+z
+Japp/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/views/ScreenApp.kt,c/b/cb3295a22b0f381dd9435b9d0131cabae390bbdf
+Å
+Qapp/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/views/ScreenBuilderApp.kt,d/a/da4c8db59dbacf6faf1ac95964ba89787846933c
+
+Oapp/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/views/WelcomeCompose.kt,a/e/ae7da727b645970a3d26e3faa05928df25c6545e
+}
+Mapp/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/views/VisitCompose.kt,7/b/7bced333d1861e71141c8163dc195edf532b10f8
+x
+Happ/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/views/StartCV.kt,f/c/fc3280e76a582aed0f2a4817b30b5757dbfc01d8
+à
+Xapp/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/views/shareviews/ButtonsShare.kt,3/2/328ce7e5db997caec0b1f00fa4a50cdaa37df5bb
+Ç
+Rapp/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/data/VisitorImageSealed.kt,1/b/1bf3323bb7743f3e46844cf48e852bc6b2c23802
