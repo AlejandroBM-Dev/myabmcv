@@ -15,4 +15,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "My ABM CV"
 include(":app")
- 
