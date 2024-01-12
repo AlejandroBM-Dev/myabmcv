@@ -5,6 +5,7 @@
     <string name="visit_screen">Dejame conocerte</string>
     <string name="start_cv_screen">Bienvenido a mi C.V.!!</string>
 
+    <string name="theme_selector_visitor">Light / Dark</string>
     <!-- VISITOR TYPE -->
     <string name="rh_visitor_title">R.H.</string>
     <string name="developer_visitor_title">Developer</string>

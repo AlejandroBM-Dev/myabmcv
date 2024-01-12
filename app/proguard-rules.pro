@@ -19,3 +19,11 @@
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
+
+#  Quick tip — if you want to minify your build, make sure to add an
+# additional rule to your proguard-rules.pro file to prevent your fields from
+# being deleted:
+
+-keepclassmembers class * extends androidx.datastore.preferences.protobuf.GeneratedMessageLite {
+    <fields>;
+}

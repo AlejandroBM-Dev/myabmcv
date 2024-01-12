@@ -15,6 +15,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -22,6 +23,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.raiseralex.myabmcv.R
 import com.raiseralex.myabmcv.navigation.AppScreen
+import com.raiseralex.myabmcv.ui.welcomeFlow.viewmodels.ThemeViewModel
 
 @Composable
 fun MyCvApp(
@@ -43,7 +45,6 @@ fun MyCvApp(
             )
         },
     ) { innerPadding ->
-
         NavHost(
             navController = navController,
             startDestination = AppScreen.WelcomeScreen.name,
@@ -84,11 +85,17 @@ fun MyCvAppBar(
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier,
+    themeViewModel: ThemeViewModel = hiltViewModel()
 ) {
     TopAppBar(
-        title = { Text(text = stringResource(id = currentScreen.title)) },
+        title = {
+            Text(
+                text = stringResource(id = currentScreen.title),
+                fontFamily = themeViewModel.getFontFamily(),
+            )
+        },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            containerColor = MaterialTheme.colorScheme.primary,
         ),
         modifier = modifier,
         navigationIcon = {
