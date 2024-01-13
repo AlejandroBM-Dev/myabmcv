@@ -15,4 +15,8 @@ enum class NestedScreen(@StringRes val title: Int) {
     // MAIN FLOW
     MainFlow(title = R.string.main_flow),
     MainScreen(title = R.string.main_screen),
+    NavBarHome(title = R.string.main_screen_nav_bar_home),
+    NavBarHistory(title = R.string.main_screen_nav_bar_history),
+    NavBarSkills(title = R.string.main_screen_nav_bar_skills),
+    NavBarReferences(title = R.string.main_screen_nav_bar_references),
 }

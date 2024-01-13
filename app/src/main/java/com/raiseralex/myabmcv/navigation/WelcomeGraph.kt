@@ -9,14 +9,13 @@ import com.raiseralex.myabmcv.ui.flows.welcomeFlow.views.StartCV
 import com.raiseralex.myabmcv.ui.flows.welcomeFlow.views.VisitCompose
 import com.raiseralex.myabmcv.ui.flows.welcomeFlow.views.WelcomeCompose
 
-fun NavGraphBuilder.onWelcomeNavGraph(navController: NavHostController, modifier: Modifier = Modifier) {
+fun NavGraphBuilder.onWelcomeNavGraph(navController: NavHostController, modifier: Modifier) {
     navigation(
         route = NestedScreen.WelcomeFlow.name,
         startDestination = NestedScreen.WelcomeScreen.name,
     ) {
         composable(route = NestedScreen.WelcomeScreen.name) {
             WelcomeCompose(
-                modifier = modifier,
                 onNextButton = {
                     navController.navigate(NestedScreen.VisitScreen.name)
                 },
@@ -24,7 +23,6 @@ fun NavGraphBuilder.onWelcomeNavGraph(navController: NavHostController, modifier
         }
         composable(route = NestedScreen.VisitScreen.name) {
             VisitCompose(
-                modifier = modifier,
                 onNextButton = {
                     navController.navigate(NestedScreen.StartCVScreen.name)
                 },
@@ -32,9 +30,8 @@ fun NavGraphBuilder.onWelcomeNavGraph(navController: NavHostController, modifier
         }
         composable(route = NestedScreen.StartCVScreen.name) {
             StartCV(
-                modifier = modifier,
                 onNextButton = {
-                    navController.popBackStack(NestedScreen.RootFlow.name, inclusive = false)
+                    navController.popBackStack(route = NestedScreen.RootFlow.name, inclusive = true)
                     navController.navigate(NestedScreen.MainFlow.name)
                 },
             )

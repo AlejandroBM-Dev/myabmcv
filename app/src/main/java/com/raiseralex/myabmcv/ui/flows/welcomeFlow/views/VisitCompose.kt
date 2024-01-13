@@ -25,7 +25,6 @@ import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Card
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.OutlinedTextField
@@ -74,7 +73,7 @@ private fun Preview() {
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
 fun VisitCompose(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     onNextButton: () -> Unit,
 ) {
     val listImage = getMockupList()
@@ -200,7 +199,6 @@ private fun PagerIndicator(
     }
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 private fun VisitorForm(
     modifier: Modifier,

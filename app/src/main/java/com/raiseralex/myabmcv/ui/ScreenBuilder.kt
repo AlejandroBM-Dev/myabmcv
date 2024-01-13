@@ -36,15 +36,7 @@ private fun Preview() {
 fun MyCvApp(
     navController: NavHostController = rememberNavController(),
 ) {
-    Scaffold(
-        topBar = {
-            MyCvAppBar(
-                navController = navController,
-                canNavigateBack = navController.previousBackStackEntry != null,
-                navigateUp = { navController.navigateUp() },
-            )
-        },
-    ) { padding ->
+    Scaffold { padding ->
         RootNavigationGraph(navHostController = navController, Modifier.padding(padding))
     }
 }

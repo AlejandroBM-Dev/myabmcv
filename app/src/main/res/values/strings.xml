@@ -12,9 +12,21 @@
 
     <!-- MAIN FLOW -->
     <string name="main_flow">main_flow</string>
-    <string name="main_screen">Hola!!</string>
+    <string name="main_screen">Bienvenido %1$s!!</string>
+    <string name="main_screen_nav_bar_home">Main Home</string>
+    <string name="main_screen_nav_bar_history">History</string>
+    <string name="main_screen_nav_bar_skills">Skills</string>
+    <string name="main_screen_nav_bar_references">References</string>
 
+    <!-- MAIN FLOW // NAV BAR-->
+    <string name="home_nav_bar">Home</string>
+    <string name="history_nav_bar">Historial</string>
+    <string name="skills_nav_bar">Skills</string>
+    <string name="references_nav_bar">References</string>
+
+    <!-- SETTINGS -->
     <string name="theme_selector_visitor">Light / Dark</string>
+    
     <!-- VISITOR TYPE -->
     <string name="rh_visitor_title">R.H.</string>
     <string name="developer_visitor_title">Developer</string>

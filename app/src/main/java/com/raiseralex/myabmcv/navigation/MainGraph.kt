@@ -1,22 +1,37 @@
 package com.raiseralex.myabmcv.navigation
 
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.navigation.NavGraphBuilder
 import androidx.navigation.NavHostController
+import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.navigation
-import com.raiseralex.myabmcv.ui.flows.homeFlow.views.MainScreen
+import com.raiseralex.myabmcv.ui.flows.homeFlow.views.BottomNavItem
+import com.raiseralex.myabmcv.ui.flows.homeFlow.views.HistoryNavScreen
+import com.raiseralex.myabmcv.ui.flows.homeFlow.views.HomeNavScreen
 
-fun NavGraphBuilder.onMainNavigationGraph(navController: NavHostController, modifier: Modifier = Modifier) {
-    navigation(
+@ExperimentalMaterial3Api
+@Composable
+fun MainGraph(navController: NavHostController, modifier: Modifier) {
+    NavHost(
+        modifier = modifier.fillMaxWidth().fillMaxHeight(),
+        navController = navController,
         route = NestedScreen.MainFlow.name,
-        startDestination = NestedScreen.MainScreen.name,
+        startDestination = BottomNavItem.Home.route,
     ) {
-        composable(route = NestedScreen.MainScreen.name) {
-            MainScreen(
-                modifier = modifier,
-                onNextButton = {},
-            )
+        composable(BottomNavItem.Home.route) {
+            HomeNavScreen()
+        }
+        composable(BottomNavItem.History.route) {
+            HistoryNavScreen()
+        }
+
+        composable(BottomNavItem.Skills.route) {
+        }
+
+        composable(BottomNavItem.References.route) {
         }
     }
 }

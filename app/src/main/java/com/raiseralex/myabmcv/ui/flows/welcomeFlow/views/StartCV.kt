@@ -15,7 +15,7 @@ import com.raiseralex.myabmcv.ui.shareViews.TypewriterText
 
 @Composable
 fun StartCV(
-    modifier: Modifier,
+    modifier: Modifier = Modifier,
     onNextButton: () -> Unit,
 ) {
     val list = "StartCV"
