@@ -1,4 +1,4 @@
-package com.raiseralex.myabmcv.ui.welcomeFlow.viewmodels
+package com.raiseralex.myabmcv.ui.flows.welcomeFlow.viewmodels
 
 import android.app.Application
 import androidx.compose.ui.text.font.Font
@@ -12,7 +12,7 @@ import com.raiseralex.myabmcv.R
 import com.raiseralex.myabmcv.application.MyCvApplication
 import com.raiseralex.myabmcv.data.local.datastore.DataStoreUtil
 import com.raiseralex.myabmcv.data.local.datastore.DataStoreUtil.Companion.IS_DARK_MODE_KEY
-import com.raiseralex.myabmcv.ui.welcomeFlow.data.ThemeState
+import com.raiseralex.myabmcv.ui.theme.ThemeState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow

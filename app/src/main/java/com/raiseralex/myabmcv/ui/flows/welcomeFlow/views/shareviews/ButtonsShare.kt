@@ -1,4 +1,4 @@
-package com.raiseralex.myabmcv.ui.welcomeFlow.views.shareviews
+package com.raiseralex.myabmcv.ui.flows.welcomeFlow.views.shareviews
 
 import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text

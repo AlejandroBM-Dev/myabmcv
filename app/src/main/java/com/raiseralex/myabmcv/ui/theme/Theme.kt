@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.LocalView
 import androidx.compose.ui.text.TextStyle
 import androidx.core.view.WindowCompat
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.raiseralex.myabmcv.ui.welcomeFlow.viewmodels.ThemeViewModel
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.viewmodels.ThemeViewModel
 
 val DarkColorScheme = darkColorScheme(
     primary = Color.Black, // Azul oscuro

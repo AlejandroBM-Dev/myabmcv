@@ -1,9 +1,18 @@
 <resources>
     <string name="app_name">My ABM CV</string>
 
+    <!-- ROOT -->
+    <string name="root_nav_host">root_host</string>
+    <!-- WELCOME FLOW -->
+    <string name="welcome_flow">welcome_flow</string>
+
     <string name="welcome_screen">Welcome!!</string>
     <string name="visit_screen">Dejame conocerte</string>
     <string name="start_cv_screen">Bienvenido a mi C.V.!!</string>
+
+    <!-- MAIN FLOW -->
+    <string name="main_flow">main_flow</string>
+    <string name="main_screen">Hola!!</string>
 
     <string name="theme_selector_visitor">Light / Dark</string>
     <!-- VISITOR TYPE -->

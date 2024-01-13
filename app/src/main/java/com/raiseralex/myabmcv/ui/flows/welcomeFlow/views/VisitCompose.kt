@@ -1,4 +1,4 @@
-package com.raiseralex.myabmcv.ui.welcomeFlow.views
+package com.raiseralex.myabmcv.ui.flows.welcomeFlow.views
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
@@ -53,12 +53,12 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.raiseralex.myabmcv.R
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.data.getMockupList
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.viewmodels.ThemeViewModel
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.views.shareviews.NextButton
 import com.raiseralex.myabmcv.ui.shareViews.TypewriterText
 import com.raiseralex.myabmcv.ui.theme.DarkColorScheme
 import com.raiseralex.myabmcv.ui.theme.LightColorScheme
-import com.raiseralex.myabmcv.ui.welcomeFlow.data.getMockupList
-import com.raiseralex.myabmcv.ui.welcomeFlow.viewmodels.ThemeViewModel
-import com.raiseralex.myabmcv.ui.welcomeFlow.views.shareviews.NextButton
 import com.raiseralex.myabmcv.utils.extensions.emptyString
 import kotlin.math.absoluteValue
 
@@ -85,8 +85,8 @@ fun VisitCompose(
     Column(
         modifier = modifier
             .padding(5.dp)
-            .fillMaxHeight(1f)
-            .fillMaxWidth(1f),
+            .fillMaxHeight()
+            .fillMaxWidth(),
     ) {
         VisitorPager(
             modifier,

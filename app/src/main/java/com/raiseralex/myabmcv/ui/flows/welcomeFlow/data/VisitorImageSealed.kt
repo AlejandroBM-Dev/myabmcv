@@ -1,4 +1,4 @@
-package com.raiseralex.myabmcv.ui.welcomeFlow.data
+package com.raiseralex.myabmcv.ui.flows.welcomeFlow.data
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
