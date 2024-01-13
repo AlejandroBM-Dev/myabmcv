@@ -1,4 +1,4 @@
-package com.raiseralex.myabmcv.ui.welcomeFlow.views
+package com.raiseralex.myabmcv.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
@@ -15,80 +15,63 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
-import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.raiseralex.myabmcv.R
-import com.raiseralex.myabmcv.navigation.AppScreen
+import com.raiseralex.myabmcv.navigation.NestedScreen
+import com.raiseralex.myabmcv.navigation.RootNavigationGraph
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.viewmodels.ThemeViewModel
 
+@Preview(showBackground = true)
+@Composable
+private fun Preview() {
+    MyCvApp()
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyCvApp(
-    modifier: Modifier = Modifier,
     navController: NavHostController = rememberNavController(),
 ) {
-    val backStackEntry by navController.currentBackStackEntryAsState()
-
-    val currentScreen = AppScreen.valueOf(
-        backStackEntry?.destination?.route ?: AppScreen.WelcomeScreen.name,
-    )
-
     Scaffold(
         topBar = {
             MyCvAppBar(
-                currentScreen = currentScreen,
+                navController = navController,
                 canNavigateBack = navController.previousBackStackEntry != null,
                 navigateUp = { navController.navigateUp() },
             )
         },
-    ) { innerPadding ->
-
-        NavHost(
-            navController = navController,
-            startDestination = AppScreen.WelcomeScreen.name,
-            modifier = modifier.padding(innerPadding),
-        ) {
-            composable(route = AppScreen.WelcomeScreen.name) {
-                WelcomeCompose(
-                    modifier = modifier,
-                    onNextButton = {
-                        navController.navigate(AppScreen.VisitScreen.name)
-                    },
-                )
-            }
-            composable(route = AppScreen.VisitScreen.name) {
-                VisitCompose(
-                    modifier = modifier,
-                    onNextButton = {
-                        navController.navigate(AppScreen.StartCVScreen.name)
-                    },
-                )
-            }
-            composable(route = AppScreen.StartCVScreen.name) {
-                StartCV(
-                    modifier = modifier,
-                    onNextButton = {
-                        navController.popBackStack(AppScreen.WelcomeScreen.name, inclusive = false)
-                    },
-                )
-            }
-        }
+    ) { padding ->
+        RootNavigationGraph(navHostController = navController, Modifier.padding(padding))
     }
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MyCvAppBar(
-    currentScreen: AppScreen,
+    navController: NavHostController,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier,
+    themeViewModel: ThemeViewModel = hiltViewModel(),
 ) {
+    val backStackEntry by navController.currentBackStackEntryAsState()
+
+    val currentScreen = NestedScreen.valueOf(
+        backStackEntry?.destination?.route ?: NestedScreen.WelcomeScreen.name,
+    )
     TopAppBar(
-        title = { Text(text = stringResource(id = currentScreen.title)) },
+        title = {
+            Text(
+                text = stringResource(id = currentScreen.title),
+                fontFamily = themeViewModel.getFontFamily(),
+            )
+        },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primaryContainer,
+            containerColor = MaterialTheme.colorScheme.primary,
         ),
         modifier = modifier,
         navigationIcon = {

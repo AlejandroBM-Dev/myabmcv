@@ -1,4 +1,4 @@
-package com.raiseralex.myabmcv.ui.welcomeFlow.views
+package com.raiseralex.myabmcv.ui.flows.welcomeFlow.views
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -10,8 +10,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.views.shareviews.NextButton
 import com.raiseralex.myabmcv.ui.shareViews.TypewriterText
-import com.raiseralex.myabmcv.ui.welcomeFlow.views.shareviews.NextButton
 
 @Composable
 fun StartCV(
@@ -22,8 +22,8 @@ fun StartCV(
     Column(
         modifier = modifier
             .padding(5.dp)
-            .fillMaxHeight(1f)
-            .fillMaxWidth(1f),
+            .fillMaxHeight()
+            .fillMaxWidth(),
     ) {
         TypewriterText(texts = list)
 

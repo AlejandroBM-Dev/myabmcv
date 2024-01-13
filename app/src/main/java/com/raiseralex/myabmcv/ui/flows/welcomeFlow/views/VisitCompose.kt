@@ -1,8 +1,9 @@
-package com.raiseralex.myabmcv.ui.welcomeFlow.views
+package com.raiseralex.myabmcv.ui.flows.welcomeFlow.views
 
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -18,8 +19,25 @@ import androidx.compose.foundation.pager.HorizontalPager
 import androidx.compose.foundation.pager.PagerState
 import androidx.compose.foundation.pager.rememberPagerState
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Email
+import androidx.compose.material.icons.filled.Person
+import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.Card
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.Switch
+import androidx.compose.material3.SwitchDefaults
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.saveable.rememberSaveable
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -28,13 +46,20 @@ import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.lerp
+import androidx.hilt.navigation.compose.hiltViewModel
+import com.raiseralex.myabmcv.R
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.data.getMockupList
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.viewmodels.ThemeViewModel
+import com.raiseralex.myabmcv.ui.flows.welcomeFlow.views.shareviews.NextButton
 import com.raiseralex.myabmcv.ui.shareViews.TypewriterText
-import com.raiseralex.myabmcv.ui.welcomeFlow.data.getMockupList
-import com.raiseralex.myabmcv.ui.welcomeFlow.views.shareviews.NextButton
+import com.raiseralex.myabmcv.ui.theme.DarkColorScheme
+import com.raiseralex.myabmcv.ui.theme.LightColorScheme
+import com.raiseralex.myabmcv.utils.extensions.emptyString
 import kotlin.math.absoluteValue
 
 @Preview(showBackground = true)
@@ -60,13 +85,14 @@ fun VisitCompose(
     Column(
         modifier = modifier
             .padding(5.dp)
-            .fillMaxHeight(1f)
-            .fillMaxWidth(1f),
+            .fillMaxHeight()
+            .fillMaxWidth(),
     ) {
         VisitorPager(
             modifier,
             pagerState,
         )
+        VisitorForm(modifier = Modifier)
         Spacer(modifier = modifier.weight(1f))
         Row(
             modifier = modifier
@@ -112,7 +138,6 @@ fun VisitorPager(
                 modifier = modifier
                     .fillMaxWidth(),
             )
-            // Card content
         }
     }
     PagerIndicator(
@@ -172,5 +197,101 @@ private fun PagerIndicator(
                     .height(size / 2),
             )
         }
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun VisitorForm(
+    modifier: Modifier,
+) {
+    var name by rememberSaveable { mutableStateOf(emptyString()) }
+    var phone by rememberSaveable { mutableStateOf(emptyString()) }
+    var email by rememberSaveable { mutableStateOf(emptyString()) }
+
+    val color = if (isSystemInDarkTheme()) {
+        DarkColorScheme.primary
+    } else {
+        LightColorScheme.primary
+    }
+    Column(
+        modifier = modifier,
+    ) {
+        OutlinedTextField(
+            modifier = modifier.fillMaxWidth(),
+            value = name,
+            onValueChange = { name = it },
+            label = { Text(text = "Name") },
+            maxLines = 1,
+            enabled = true,
+            leadingIcon = {
+                Icon(
+                    Icons.Filled.Person,
+                    "Visitor Name",
+                    tint = color,
+                )
+            },
+        )
+        Spacer(modifier = modifier.size(5.dp))
+        OutlinedTextField(
+            modifier = modifier.fillMaxWidth(),
+            value = phone,
+            onValueChange = { phone = it },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Phone),
+            label = { Text(text = "Phone") },
+            maxLines = 1,
+            leadingIcon = {
+                Icon(
+                    Icons.Filled.Phone,
+                    "Visitor Phone",
+                    tint = color,
+                )
+            },
+        )
+        Spacer(modifier = modifier.size(5.dp))
+        OutlinedTextField(
+            modifier = modifier.fillMaxWidth(),
+            value = email,
+            onValueChange = { email = it },
+            keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email),
+            label = { Text(text = "Email") },
+            maxLines = 1,
+            leadingIcon = {
+                Icon(
+                    Icons.Filled.Email,
+                    "Visitor Email",
+                    tint = color,
+                )
+            },
+        )
+        Spacer(modifier = modifier.size(5.dp))
+        SwitchWithCustomColors()
+    }
+}
+
+@Composable
+fun SwitchWithCustomColors(
+    viewModel: ThemeViewModel = hiltViewModel(),
+) {
+    val themeState by viewModel.themeSate.collectAsState()
+    val color = if (isSystemInDarkTheme()) {
+        DarkColorScheme.primary
+    } else {
+        LightColorScheme.primary
+    }
+    Row {
+        Text(text = stringResource(id = R.string.theme_selector_visitor), color = color)
+        Switch(
+            checked = themeState.isDarkMode,
+            onCheckedChange = {
+                viewModel.toggleTheme()
+            },
+            colors = SwitchDefaults.colors(
+                checkedThumbColor = MaterialTheme.colorScheme.primary,
+                checkedTrackColor = MaterialTheme.colorScheme.primaryContainer,
+                uncheckedThumbColor = MaterialTheme.colorScheme.secondary,
+                uncheckedTrackColor = MaterialTheme.colorScheme.secondaryContainer,
+            ),
+        )
     }
 }

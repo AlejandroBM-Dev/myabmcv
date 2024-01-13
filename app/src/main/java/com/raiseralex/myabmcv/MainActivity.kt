@@ -6,8 +6,8 @@ import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.core.view.WindowCompat
-import com.raiseralex.myabmcv.ui.theme.MyABMCVTheme
-import com.raiseralex.myabmcv.ui.welcomeFlow.views.MyCvApp
+import com.raiseralex.myabmcv.ui.MyCvApp
+import com.raiseralex.myabmcv.ui.theme.CustomTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
         }
 
         setContent {
-            MyABMCVTheme {
+            CustomTheme {
                 MyCvApp()
             }
         }
