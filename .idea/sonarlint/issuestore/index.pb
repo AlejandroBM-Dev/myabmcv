@@ -55,3 +55,5 @@ Happ/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/views/StartCV.kt,f/c/f
 Xapp/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/views/shareviews/ButtonsShare.kt,3/2/328ce7e5db997caec0b1f00fa4a50cdaa37df5bb
 ‚
 Rapp/src/main/java/com/raiseralex/myabmcv/ui/welcomeFlow/data/VisitorImageSealed.kt,1/b/1bf3323bb7743f3e46844cf48e852bc6b2c23802
+F
+app/proguard-rules.pro,9/e/9e08934d811afe28fbc77aaa3c0d747b94348db9
