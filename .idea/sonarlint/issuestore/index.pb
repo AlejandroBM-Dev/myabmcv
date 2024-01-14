@@ -67,3 +67,13 @@ l
 Qapp/src/main/java/com/raiseralex/myabmcv/ui/flows/homeFlow/views/HomeNavScreen.kt,e/f/eff9ee4f56bc49670d36ad8355bd48b71ee64f2f
 „
 Tapp/src/main/java/com/raiseralex/myabmcv/ui/flows/homeFlow/views/HistoryNavScreen.kt,4/3/430d984a678e349156641b9858d262d67e5b8aa6
+…
+Uapp/src/main/java/com/raiseralex/myabmcv/ui/flows/welcomeFlow/views/StartCVCompose.kt,f/8/f8e286c9d982241419c16ebc2c445429e81b75a2
+i
+9app/src/main/java/com/raiseralex/myabmcv/ui/theme/data.kt,3/a/3a7bf10a2029bc16931d8651560b0187e52bb466
+k
+;app/src/main/java/com/raiseralex/myabmcv/ui/theme/Dimens.kt,6/b/6b5ad79e04f8f95f2e7e8ba61d5019bd1a9dc411
+q
+Aapp/src/main/java/com/raiseralex/myabmcv/ui/theme/CustomColors.kt,5/c/5c491bb032752c5989bb6d7d404276e374fb8fe3
+p
+@app/src/main/java/com/raiseralex/myabmcv/ui/theme/CustomTheme.kt,e/6/e6d95d71ffd48a3fd152097b78190f6798c063f5

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.sp
 import com.raiseralex.myabmcv.ui.shareViews.TypewriterText
 
 @Composable
@@ -15,6 +16,6 @@ fun HomeNavScreen() {
             .fillMaxHeight()
             .fillMaxWidth(),
     ) {
-        TypewriterText(texts = list)
+        TypewriterText(texts = list, textSize = 22.sp)
     }
 }

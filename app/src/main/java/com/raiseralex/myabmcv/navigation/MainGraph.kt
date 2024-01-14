@@ -11,6 +11,8 @@ import androidx.navigation.compose.composable
 import com.raiseralex.myabmcv.ui.flows.homeFlow.views.BottomNavItem
 import com.raiseralex.myabmcv.ui.flows.homeFlow.views.HistoryNavScreen
 import com.raiseralex.myabmcv.ui.flows.homeFlow.views.HomeNavScreen
+import com.raiseralex.myabmcv.ui.flows.homeFlow.views.MoreView1
+import com.raiseralex.myabmcv.ui.flows.homeFlow.views.MoreView2
 
 @ExperimentalMaterial3Api
 @Composable
@@ -29,9 +31,11 @@ fun MainGraph(navController: NavHostController, modifier: Modifier) {
         }
 
         composable(BottomNavItem.Skills.route) {
+            MoreView1()
         }
 
         composable(BottomNavItem.References.route) {
+            MoreView2()
         }
     }
 }

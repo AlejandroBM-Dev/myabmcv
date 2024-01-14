@@ -1,7 +1,9 @@
 package com.raiseralex.myabmcv.ui.flows.homeFlow.views
 
+import android.annotation.SuppressLint
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -20,7 +22,6 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -35,22 +36,24 @@ import androidx.navigation.compose.rememberNavController
 import com.raiseralex.myabmcv.R
 import com.raiseralex.myabmcv.navigation.MainGraph
 
+@SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun MainScreen(modifier: Modifier = Modifier) {
     val navController = rememberNavController()
 
     Scaffold(
-        topBar = {
-            TopAppBar(
-                title = {
-                    Text(text = stringResource(id = R.string.main_screen))
+        bottomBar = {
+            MainBottomNavigationBar(
+                modifier = modifier,
+                onClickHome = { route ->
+                    navController.navigate(route = route)
                 },
             )
         },
 
-    ) { paddingValues ->
-        MainGraph(navController = navController, modifier = modifier.padding(paddingValues))
+    ) {
+        MainGraph(navController = navController, modifier.padding(start = 0.dp, top = 0.dp, end = 0.dp, bottom = 50.dp))
     }
 }
 
@@ -127,6 +130,8 @@ fun MoreView1() {
         Text("Thing 1")
         Text("Thing 2")
         Text("Thing 3")
+        Spacer(modifier = Modifier.fillMaxSize(1f))
+        Text("Thing 4")
     }
 }
 
@@ -140,6 +145,13 @@ fun MoreView2() {
         Text("Thing 3")
         Text("Thing 4")
         Text("Thing 5")
+        Spacer(modifier = Modifier.weight(1f))
+        Text(" 1")
+        Text("Thing 2")
+        Text(" 3")
+        Text("Thing 4")
+        Text(" 5")
+        Text("Thing 6")
     }
 }
 

@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.raiseralex.myabmcv.ui.flows.welcomeFlow.views.shareviews.NextButton
 import com.raiseralex.myabmcv.ui.shareViews.TypewriterText
 
@@ -25,7 +26,7 @@ fun StartCV(
             .fillMaxHeight()
             .fillMaxWidth(),
     ) {
-        TypewriterText(texts = list)
+        TypewriterText(texts = list, textSize = 22.sp)
 
         Spacer(modifier = modifier.weight(1f))
         Row(

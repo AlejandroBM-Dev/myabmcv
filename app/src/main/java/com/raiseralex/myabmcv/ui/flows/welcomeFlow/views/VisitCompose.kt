@@ -49,6 +49,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.raiseralex.myabmcv.R
@@ -128,7 +129,7 @@ fun VisitorPager(
                     )
                 },
         ) {
-            TypewriterText(texts = stringResource(id = getMockupList()[pagerState.currentPage].title))
+            TypewriterText(texts = stringResource(id = getMockupList()[pagerState.currentPage].title), textSize = 30.sp)
             Spacer(modifier = modifier.size(1.dp))
             Image(
                 painter = painterResource(id = getMockupList()[pagerState.currentPage].id),
